@@ -1,7 +1,6 @@
 freebsd_build_task:
   env:
-    - ROSWELL_BRANCH=master
-
+    ROSWELL_BRANCH: master
   freebsd_instance:
     matrix:
       image_family: freebsd-11-3-snap
