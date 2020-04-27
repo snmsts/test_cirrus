@@ -1,4 +1,6 @@
 freebsd_build_task:
+  env:
+    - ROSWELL_BRANCH=master
 
   freebsd_instance:
     matrix:
