@@ -2,20 +2,16 @@ freebsd_build_task:
 
   freebsd_instance:
     matrix:
-      image_family: freebsd-12-1
       image_family: freebsd-11-3-snap
     cpu: 1
     memory: 1G
 
   prepare_script:
-    - pkg install -y sbcl gmake git
+    - pkg install -y gcc curl autoconf automake gmake bash git
 
   build_script:
-    - echo '"1.9.99.999"' > version.lisp-expr
-    - ./make.sh
+    - curl -L https://raw.githubusercontent.com/roswell/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
+    - ros use sbcl-bin/system
+    - git clone https://github.com/roswell/sbcl_bin.git
+    - cd sbcl_bin;env METHOD=default ros -l Lakefile
 
-  test_script:
-    - cd tests; ./run-tests.sh
-
-  ansi_test_script:
-    - cd tests; ./ansi-tests.sh
