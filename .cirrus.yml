@@ -8,7 +8,7 @@ freebsd_build_task:
     memory: 1G
 
   prepare_script:
-    - pkg install -y gcc curl autoconf automake gmake bash git
+    - pkg install -y gcc curl autoconf automake gmake bash sbcl git
 
   build_script:
     - curl -L https://raw.githubusercontent.com/roswell/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
