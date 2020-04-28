@@ -13,6 +13,7 @@ freebsd_build_task:
   build_script:
     - curl -L https://raw.githubusercontent.com/roswell/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
     - ros use sbcl-bin/system
+    - ros install snmsts/sn.github
     - git clone https://github.com/roswell/sbcl_bin.git
     - cd sbcl_bin;env METHOD=default ros -l Lakefile
 
