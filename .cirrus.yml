@@ -16,5 +16,7 @@ freebsd_build_task:
     - ros use sbcl-bin/system
     - ros install snmsts/sn.github
     - git clone https://github.com/roswell/sbcl_bin.git
-    - cd sbcl_bin;env METHOD=default ros -l Lakefile
+    - cd sbcl_bin;gmake latest-version archive
 
+  binaries_artifacts:
+    path: "sbcl_bin/*.bz2"
